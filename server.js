@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const db = mongoose.connection
 require('dotenv').config()
-
+console.log(process.env);
 //____________
 //PORT
 //____________
@@ -44,7 +44,7 @@ app.listen(PORT, () => console.log( 'Listening on port:', PORT));
 
 
 
-// 
+//
 // app.listen(3000, ()=>{
 //     console.log('listening...');
 // });
