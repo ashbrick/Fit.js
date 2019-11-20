@@ -1,0 +1,24 @@
+{
+  "name": "studious-chainsaw",
+  "version": "1.0.0",
+  "description": "Unit 3 Project",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashbrick/studious-chainsaw.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashbrick/studious-chainsaw/issues"
+  },
+  "homepage": "https://github.com/ashbrick/studious-chainsaw#readme"
+}
