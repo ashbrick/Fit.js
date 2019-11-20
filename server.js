@@ -19,14 +19,14 @@ app.get('/', (req, res)=>{
 // --------
 //DATABASE
 //---------
-const MONGODB_URI = process.env.MONGODB_URI
-console.log(MONGODB_URI);
+const PROJECT3_DB = process.env.PROJECT3_DB
+console.log(PROJECT3_DB);
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false, useCreateIndex: true })
+mongoose.connect(PROJECT3_DB, { useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false, useCreateIndex: true })
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('connected', () => console.log('mongo connected: ', PROJECT3_DB));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 
