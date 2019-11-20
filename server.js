@@ -11,6 +11,11 @@ const PORT = process.env.PORT
 
 console.log(PORT);
 
+app.get('/', (req, res)=>{
+    res.send("hello world");
+})
+
+
 // --------
 //DATABASE
 //---------
@@ -32,8 +37,9 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));//
+app.use(express.urlencoded({ extended: false }));
 
+app.use(express.json());
 
 //___________________
 //Listener
