@@ -1,6 +1,15 @@
 /* *{
     border: gold 2px solid;
 } */
+
+header {
+  background-color: lightgrey;
+}
+
+header h1 {
+  text-align: center;
+  padding: 3%;
+}
 .container-fluid {
     display: flex;
     justify-content: center;
@@ -34,4 +43,21 @@
 }
 #signupPage {
     background: url();
+}
+
+/* INPUT BOX STYLES */
+.workout-input {
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-top: 5%;
+  padding: 10px 20px;
+}
+
+.createbtn {
+  margin-left: 50%;
+  margin-top: 5%;
+}
+
+input {
+  margin-bottom: 5%;
 }
