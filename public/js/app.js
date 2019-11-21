@@ -1,12 +1,10 @@
 const app = angular.module('WorkoutApp', []);
 
 app.controller('MyController', ['$http', function($http){
-  const controller = this; //create controller variable
+  this.foo ='bar';
+  const controller = this;
   this.loggedInUser = false;
-  this.indexOfEditFormToShow = null;
-// ----------------------------
-// LOGIN FORM FUNCTIONS
-// ----------------------------
+
   this.signup = function(){
       $http({
           url:'/users',
@@ -17,6 +15,8 @@ app.controller('MyController', ['$http', function($http){
           }
       }).then(function(response){
           controller.loggedInUser = response.data;
+          controller.signupUsername = null;
+          controller.signupPassword = null;
       })
   }
 
@@ -47,22 +47,15 @@ app.controller('MyController', ['$http', function($http){
       })
   }
 
-  // ----------------------------
-  // MAIN INDEX PAGE FUNCTIONS
-  // ----------------------------
-
-//This function will get all workouts
   this.getWorkouts = function(){
       $http({
           method: 'GET',
           url: '/workouts',
       }).then(function(response){
           controller.workouts = response.data;
-          console.log(response.data);
-        }, function(){
-          console.log('error');
+          console.log(response.data)
       });
-  };
+  }
 
   this.createWorkout = function(){
     $http({
@@ -76,49 +69,12 @@ app.controller('MyController', ['$http', function($http){
         rest: this.rest
       }
     }).then(function(response){
-        controller.getWorkouts(); //get all workouts when new element is added
-        console.log(response);
+        controller.getWorkouts();
+      console.log(response);
     }, function(){
-        console.log('error');
+      console.log('error');
     });
   }
-
-  //This function will delete a workout
-  this.deleteWorkout = function(workout){
-      $http({
-        method: 'DELETE',
-        url: '/workouts/' + workout._id
-      }).then(
-        function(response){
-            controller.getWorkouts();
-        },
-        function(error){
-        }
-    );
-  }
-
-  //This function will edit a workout
-  this.editWorkout = function(todo){
-    $http({
-      method: 'PUT',
-      url: '/workouts/' + todo._id,
-      data: {
-        type: this.updatedType,
-        duration: this.updatedDuration,
-        sets: this.updatedSets,
-        reps: this.updatedReps,
-        rest: this.updatedRest
-      }
-    }).then(
-      function(response){
-        controller.getWorkouts();
-        controller.indexOfEditFormToShow = null;
-      },
-      function(error){
-      }
-    );
-  }
-
 
   this.getWorkouts();
 
