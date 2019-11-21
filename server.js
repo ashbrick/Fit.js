@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const db = mongoose.connection
+const session = require('express-session')
 require('dotenv').config()
 console.log(process.env);
 //____________
@@ -11,9 +12,21 @@ const PORT = process.env.PORT
 
 console.log(PORT);
 
+app.use(session({
+    secret:'feedmeseymour',
+    resave:false,
+    saveUnitialized:false
+}))
+
 app.get('/', (req, res)=>{
     res.send("hello world");
 })
+
+const usersController = require('./controllers/users.js')
+app.use('/users', usersController)
+
+const sessionController = require('./controllers/session.js')
+app.use('/session', sessionController)
 
 
 // --------
