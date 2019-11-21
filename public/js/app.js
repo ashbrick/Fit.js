@@ -5,6 +5,7 @@ app.controller('MyController', ['$http', function($http){
   const controller = this;
   this.loggedInUser = false;
 
+//user can sign up
   this.signup = function(){
       $http({
           url:'/users',
@@ -15,11 +16,12 @@ app.controller('MyController', ['$http', function($http){
           }
       }).then(function(response){
           controller.loggedInUser = response.data;
-          controller.signupUsername = null;
-          controller.signupPassword = null;
+          controller.signupUsername = null; //clears username after sign up
+          controller.signupPassword = null; // clears password
       })
   }
 
+// user can login
   this.login = function(){
       $http({
           url:'/session',
@@ -32,12 +34,13 @@ app.controller('MyController', ['$http', function($http){
           if(response.data.username){
               controller.loggedInUser = response.data;
           } else {
-              controller.loginUsername = null;
-              controller.loginPassword = null;
+              controller.loginUsername = null; // clears username
+              controller.loginPassword = null; // clears password
           }
       })
   }
 
+// user can logout
   this.logout = function(){
       $http({
           url:'/session',
@@ -47,6 +50,7 @@ app.controller('MyController', ['$http', function($http){
       })
   }
 
+// shows all workouts
   this.getWorkouts = function(){
       $http({
           method: 'GET',
@@ -57,6 +61,7 @@ app.controller('MyController', ['$http', function($http){
       });
   }
 
+// allows user to create a new workout
   this.createWorkout = function(){
     $http({
       method:'POST',
@@ -76,14 +81,15 @@ app.controller('MyController', ['$http', function($http){
     });
   }
 
-  this.getWorkouts();
+  this.getWorkouts(); // refreshes page and adds data without taking user away from page 
 
+//  keeps the user logged in on page refresh
   $http({
       method:'GET',
       url:'/session'
   }).then(function(response){
       if(response.data.username){
-          controller.loggedInUser = response.data;
+          controller.loggedInUser = response.data; // saves session for logged in user
       }
   })
 
