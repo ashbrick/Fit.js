@@ -14,16 +14,21 @@
     <!-- Form to create new workout -->
     <form ng-submit="ctrl.createWorkout()">
       <!-- Test - below should display on screen -->
-      {{ctrl.type}} - {{ctrl.duration}} - {{ctrl.sets}} - {{ctrl.reps}} - {{ctrl.rest}}
+      <!-- {{ctrl.type}} - {{ctrl.duration}} - {{ctrl.sets}} - {{ctrl.reps}} - {{ctrl.rest}} -->
 
-      <input type="text" ng-model="ctrl.type" placeholder="Workout Type">
-      <input type="text" ng-model="ctrl.duration" placeholder="Duration(Minutes)">
-      <input type="text" ng-model="ctrl.sets" placeholder="Sets">
-      <input type="text" ng-model="ctrl.reps" placeholder="Reps">
-      <input type="text" ng-model="ctrl.rest" placeholder="Rest Time">
+      Workout Type: <input type="text" ng-model="ctrl.type" name="type" placeholder="Workout Type"><br>
+      Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="Duration(Minutes)"><br>
+      Sets: <input type="number" ng-model="ctrl.sets" name="sets" placeholder="Sets"><br>
+      Reps: <input type="number" ng-model="ctrl.reps" name="reps" placeholder="Reps"><br>
+      Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="Rest Time"><br>
       <input type="submit" value="Log New Workout">
     </form>
-
+    <ul>
+        <li
+        ng-repeat="workout in ctrl.workouts"
+        >{{workout.type}} - {{workout.duration}} - {{workout.sets}} - {{workout.reps}} - {{workout.rest}}
+    </li>
+    </ul>
 
   </body>
 </html>

@@ -12,21 +12,36 @@ const PORT = process.env.PORT
 
 console.log(PORT);
 
+
+// --------
+//MIDDLEWARE
+//---------
+//use public folder for static assets like CSS JS
+app.use(express.static('public'));
+
+// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
+app.use(express.urlencoded({ extended: false }));
+
+app.use(express.json()); // tells Express to expect JSON data in the body from AJAX
+
 app.use(session({
     secret:'feedmeseymour',
     resave:false,
     saveUnitialized:false
 }))
 
-app.get('/', (req, res)=>{
-    res.send("hello world");
-})
+// app.get('/', (req, res)=>{
+//     res.send("hello world");
+// }) // used to test initial server setup
+
+const workoutsController = require('./controllers/workouts.js');
+app.use('/workouts', workoutsController);
 
 const usersController = require('./controllers/users.js')
-app.use('/users', usersController)
+app.use('/users', usersController);
 
 const sessionController = require('./controllers/session.js')
-app.use('/session', sessionController)
+app.use('/session', sessionController);
 
 
 // --------
@@ -43,16 +58,6 @@ db.on('connected', () => console.log('mongo connected: ', PROJECT3_DB));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 
-// --------
-//MIDDLEWARE
-//---------
-//use public folder for static assets like CSS JS
-app.use(express.static('public'));
-
-// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));
-
-app.use(express.json());
 
 //___________________
 //Listener
