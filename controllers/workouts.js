@@ -29,21 +29,27 @@ router.post('/', (req, res) => {
 // shows new object in terminal
 
 
-// DELETE
+//==============
+// DESTROY: DELETE ROUTE
+//==============
 router.delete('/:id', (req, res) => {
     Workouts.findByIdAndRemove(req.params.id, (error, deletedWorkout) => {
         res.json(deletedWorkout);
     });
 });
-//haven't tested yet
+// test successful using: curl -X DELETE http://localhost:3000/workouts/5dd6c5ae1617a759e76dcc82
 
-// UPDATE
+
+//==============
+// UPDATE: PUT ROUTE
+//==============
 router.put('/:id', (req, res) => {
     Workouts.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedWorkout) => {
         res.json(updatedWorkout);
     });
 });
-//haven't tested yet
+// test successful using: curl -X PUT -H "Content-Type: application/json" -d '{"type":"update test","duration":"updating","sets":2,"reps":2,"rest":2}' http://localhost:3000/workouts/5dd6bfc6834266574894b765
+
 
 
 
