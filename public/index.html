@@ -9,6 +9,7 @@
   <body ng-controller="MyController as ctrl">
     {{2+2}}
     {{ctrl.foo}}
+    <!-- this section is for signing in and logging in and will make it seem like the user is on a different page -->
     <section ng-if="ctrl.loggedInUser === false">
         <h3> Sign Up </h3>
         <form ng-submit="ctrl.signup()">
