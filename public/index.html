@@ -9,5 +9,21 @@
   <body ng-controller="MyController as ctrl">
     {{2+2}}
     {{ctrl.foo}}
+
+
+    <!-- Form to create new workout -->
+    <form ng-submit="ctrl.createWorkout()">
+      <!-- Test - below should display on screen -->
+      {{ctrl.type}} - {{ctrl.duration}} - {{ctrl.sets}} - {{ctrl.reps}} - {{ctrl.rest}}
+
+      <input type="text" ng-model="ctrl.type" placeholder="Workout Type">
+      <input type="text" ng-model="ctrl.duration" placeholder="Duration(Minutes)">
+      <input type="text" ng-model="ctrl.sets" placeholder="Sets">
+      <input type="text" ng-model="ctrl.reps" placeholder="Reps">
+      <input type="text" ng-model="ctrl.rest" placeholder="Rest Time">
+      <input type="submit" value="Log New Workout">
+    </form>
+
+
   </body>
 </html>
