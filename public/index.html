@@ -8,7 +8,6 @@
   </head>
   <body ng-controller="MyController as ctrl">
     {{2+2}}
-    {{ctrl.foo}}
     <!-- this section is for signing in and logging in and will make it seem like the user is on a different page -->
     <section ng-if="ctrl.loggedInUser === false">
         <h3> Sign Up </h3>
@@ -28,22 +27,45 @@
         <button ng-click="ctrl.logout()">Log Out!</button>
 
 
+    <h1>Workout App</h1>
     <!-- Form to create new workout -->
     <form ng-submit="ctrl.createWorkout()">
-      <!-- Test - below should display on screen -->
-      <!-- {{ctrl.type}} - {{ctrl.duration}} - {{ctrl.sets}} - {{ctrl.reps}} - {{ctrl.rest}} -->
 
       Workout Type: <input type="text" ng-model="ctrl.type" name="type" placeholder="Workout Type"><br>
       Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="Duration(Minutes)"><br>
       Sets: <input type="number" ng-model="ctrl.sets" name="sets" placeholder="Sets"><br>
       Reps: <input type="number" ng-model="ctrl.reps" name="reps" placeholder="Reps"><br>
-      Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="Rest Time"><br>
+      Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="Rest Time(Seconds)"><br>
       <input type="submit" value="Log New Workout">
     </form>
+
+
     <ul>
         <li
         ng-repeat="workout in ctrl.workouts"
         >{{workout.type}} - {{workout.duration}} - {{workout.sets}} - {{workout.reps}} - {{workout.rest}}
+        <input ng-click="ctrl.deleteWorkout(workout)" type="submit" value="Delete Workout">
+
+        <a>
+        <button type="button" name="button"
+
+          ng-if="$index !== ctrl.indexOfEditFormToShow"
+          ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedDescription=''">Edit Workout
+        </button>
+        </a>
+
+        <!-- //Button to Edit form -->
+        <form
+          ng-if="$index === ctrl.indexOfEditFormToShow"
+          ng-submit="ctrl.editWorkout(workout);">
+          <input type="text" ng-model="ctrl.updatedType" placeholder="Workout Type">
+          <input type="text" ng-model="ctrl.updatedDuration" placeholder="Duration(Minutes)">
+          <input type="text" ng-model="ctrl.updatedSets" placeholder="Sets">
+          <input type="text" ng-model="ctrl.updatedReps" placeholder="Reps">
+          <input type="text" ng-model="ctrl.updatedRest" placeholder="Rest Time(Seconds) ">
+          <input type="submit" value="Update Workout">
+        </form>
+
     </li>
     </ul>
     <!-- </section> -->
