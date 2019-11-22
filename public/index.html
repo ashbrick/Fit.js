@@ -1,69 +1,74 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="WorkoutApp">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-    <title>Workout App</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
-    <script src="/js/app.js" charset="utf-8"></script>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Titillium+Web&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/app.css">
-  </head>
-  <body ng-controller="MyController as ctrl">
-      <header>
-        <h1>Fit.js</h1>
-      </header>
-      <div class="container-fluid">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+  <title>Workout App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Titillium+Web&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body ng-controller="MyController as ctrl">
+  <header>
+    <h1>Fit.js</h1>
+  </header>
+  <div class="container-fluid">
 
-            <section id="signupPage" ng-if="ctrl.loggedInUser === false">
+    <section id="signupPage" ng-if="ctrl.loggedInUser === false">
 
-                <!-- iframe -->
-                <!-- <iframe class="iframe" src="http://shutterstock.7eer.net/c/1203981/43977/1305?u=https://www.shutterstock.com/video/clip-1012928603&subId1=search&subId2=workout" width="100px" height="100px"></iframe> -->
+      <!-- iframe -->
+      <!-- <iframe class="iframe" src="http://shutterstock.7eer.net/c/1203981/43977/1305?u=https://www.shutterstock.com/video/clip-1012928603&subId1=search&subId2=workout" width="100px" height="100px"></iframe> -->
 
-                <div class="signup">
-                    <h3> Sign Up </h3>
-                    <form id="signupform" ng-submit="ctrl.signup()">
-                        Username: <input class="username" type="text" ng-model="ctrl.signupUsername"/></br>
-                        Password: <input class="password" type="password" ng-model="ctrl.signupPassword"/></br>
-                        <input class="inputbtn" type="submit" value="Sign Up!">
-                    </form>
-                </div>
+      <div class="signup">
+        <h3> Sign Up </h3>
+        <form id="signupform" ng-submit="ctrl.signup()">
+          Username: <input class="username" type="text" ng-model="ctrl.signupUsername"/></br>
+          Password: <input class="password" type="password" ng-model="ctrl.signupPassword"/></br>
+          <input class="inputbtn" type="submit" value="Sign Up!">
+        </form>
+      </div>
 
-                <div class="login">
-                    <h3> Log In </h3>
-                    <form id="loginform" ng-submit="ctrl.login()">
-                        Username: <input class="username" type="text" ng-model="ctrl.loginUsername"/></br>
-                        Password: <input class="password" type="password" ng-model="ctrl.loginPassword"/></br>
-                        <input class="inputbtn" type="submit" value="Log In!">
-                    </form>
-                </div>
+      <div class="login">
+        <h3> Log In </h3>
+        <form id="loginform" ng-submit="ctrl.login()">
+          Username: <input class="username" type="text" ng-model="ctrl.loginUsername"/></br>
+          Password: <input class="password" type="password" ng-model="ctrl.loginPassword"/></br>
+          <input class="inputbtn" type="submit" value="Log In!">
+        </form>
+      </div>
 
-        </section>
-        <section ng-if="ctrl.loggedInUser !== false">
+    </section>
+    <section ng-if="ctrl.loggedInUser !== false">
 
+      <div class="workout-input">
+        <form class="new-workout-form"ng-submit="ctrl.createWorkout()">
+          Workout Type: <input type="text" ng-model="ctrl.type" name="type" placeholder="Workout Type"><br>
+          Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="Duration(Minutes)"><br>
+          Sets: <input type="number" ng-model="ctrl.sets" name="sets" placeholder="Sets"><br>
+          Reps: <input type="number" ng-model="ctrl.reps" name="reps" placeholder="Reps"><br>
+          Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="Rest Time"><br>
+          <input class="createbtn" type="submit" value="Create Workout">
+        </form>
+      </div>
 
-        <div class="workout-input">
-          <form class="new-workout-form"ng-submit="ctrl.createWorkout()">
-            <div class="form-group">
+      <div ng-repeat="workout in ctrl.workouts" class="completed-workout-card">
+        <p>Exercise: {{workout.type}}</p>
+        <p>Workout Duration: {{workout.duration}}</p>
+        <p>Sets: {{workout.sets}}</p>
+        <p>Reps: {{workout.reps}}</p>
+        <p>Rest: {{workout.rest}}</p>
+      </div>
 
-            </div>
-            Workout Type: <input type="text" ng-model="ctrl.type" name="type" placeholder="Workout Type"><br>
-            Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="Duration(Minutes)"><br>
-            Sets: <input type="number" ng-model="ctrl.sets" name="sets" placeholder="Sets"><br>
-            Reps: <input type="number" ng-model="ctrl.reps" name="reps" placeholder="Reps"><br>
-            Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="Rest Time"><br>
-            <input class="createbtn" type="submit" value="Create Workout">
-          </form>
-          </div>
-          <ul>
+          <!-- <ul>
               <li
               ng-repeat="workout in ctrl.workouts"
               >{{workout.type}} - {{workout.duration}} - {{workout.sets}} - {{workout.reps}} - {{workout.rest}}
           </li>
-          </ul>
+          </ul> -->
           <button ng-click="ctrl.logout()">Log Out!</button>
 
         <!-- Form to create new workout -->
