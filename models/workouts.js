@@ -5,7 +5,6 @@ const workoutSchema = new mongoose.Schema({
     duration: String,
     date: String
     //commenting these out because I created another schema for exercises in order to relate the two dbs (exercises and workouts)
-    // duration: String,
     // sets: Number,
     // reps: Number,
     // rest: Number
