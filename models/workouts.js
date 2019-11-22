@@ -7,7 +7,16 @@ const workoutSchema = new mongoose.Schema({
     duration: String,
     date: String,
     //need to be able to embed the exercise schema in an array within the workout object
-    exercise: [Exercises] // created a key for exercise in order to pull in exercises based on the array of exercise objects that getWorkouts() is creating in app.js
+    exercise: [{
+        exerciseName: String,
+        sets: Number,
+        reps: Number,
+        rest: Number
+    }] //this works! no errors
+        // previous tries that didn't work
+            // 2. Exercises -- also giving me an error, saying 'Model' is not a valid type at path 'exercise'
+            // 1. [Exercises]  -- i think this was giving me an error
+    // created a key for exercise in order to pull in exercises based on the array of exercise objects that getWorkouts() is creating in app.js
 });
 
 //this will create an empty array in mongo called Workouts based on the blueprint of properties (above) that each workout will have
