@@ -81,7 +81,7 @@ app.controller('MyController', ['$http', function($http){
     });
   }
 
-  this.getWorkouts(); // refreshes page and adds data without taking user away from page 
+  this.getWorkouts(); // refreshes page and adds data without taking user away from page
 
 //  keeps the user logged in on page refresh
   $http({
