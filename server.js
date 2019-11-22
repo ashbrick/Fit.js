@@ -37,6 +37,9 @@ app.use(session({
 const workoutsController = require('./controllers/workouts.js');
 app.use('/workouts', workoutsController);
 
+const exercisesController = require('./controllers/exercises.js');
+app.use('/exercises', exercisesController);
+
 const usersController = require('./controllers/users.js')
 app.use('/users', usersController);
 
