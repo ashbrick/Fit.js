@@ -54,17 +54,18 @@
 
       <div class="workout-input">
         <form class="new-workout-form"ng-submit="ctrl.createWorkout()">
-          Workout Type: <input type="text" ng-model="ctrl.type" name="type" placeholder="Workout Type"><br>
-          Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="Duration(Minutes)"><br>
-          Sets: <input type="number" ng-model="ctrl.sets" name="sets" placeholder="Sets"><br>
-          Reps: <input type="number" ng-model="ctrl.reps" name="reps" placeholder="Reps"><br>
-          Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="Rest Time"><br>
+          Workout Name: <input type="text" ng-model="ctrl.workoutName" name="type"><br>
+          Exercises: <input type="text" ng-model="ctrl.exercises" name="exercises" ><br>
+          Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="(Minutes)"><br>
+          Sets: <input type="number" ng-model="ctrl.sets" name="sets" ><br>
+          Reps: <input type="number" ng-model="ctrl.reps" name="reps" ><br>
+          Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="(seconds)"><br>
           <input class="createbtn" type="submit" value="Create Workout">
         </form>
       </div>
 
       <div ng-repeat="workout in ctrl.workouts" class="completed-workout-card">
-        <p>Exercise: {{workout.type}}</p>
+        <p>Exercises: {{workout.exercises}}</p>
         <p>Workout Duration: {{workout.duration}}</p>
         <p>Sets: {{workout.sets}}</p>
         <p>Reps: {{workout.reps}}</p>
@@ -84,8 +85,9 @@
      <form
        ng-if="$index === ctrl.indexOfEditFormToShow"
        ng-submit="ctrl.editWorkout(workout);">
-       <input type="text" ng-model="ctrl.updatedType" placeholder="Workout Type">
+       <input type="text" ng-model="ctrl.updatedWorkoutName" placeholder="Workout Name">
        <input type="text" ng-model="ctrl.updatedDuration" placeholder="Duration(Minutes)">
+       <input type="text" ng-model="ctrl.updatedExercises" placeholder="Exercises">
        <input type="text" ng-model="ctrl.updatedSets" placeholder="Sets">
        <input type="text" ng-model="ctrl.updatedReps" placeholder="Reps">
        <input type="text" ng-model="ctrl.updatedRest" placeholder="Rest Time(Seconds) ">
@@ -109,3 +111,11 @@
     </div>
   </body>
 </html>
+
+
+
+<!-- safety orange: #FA7403 -->
+<!-- tufts blue: #3F88C5 -->
+<!-- white: #FFFFFF -->
+<!-- gainsboro: #E0E2DB -->
+<!-- rich black: #01110A -->
