@@ -6,6 +6,7 @@ const workoutSchema = new mongoose.Schema({
     type: String,
     duration: String,
     date: String,
+    //need to be able to embed the exercise schema in an array within the workout object
     exercise: [Exercises] // created a key for exercise in order to pull in exercises based on the array of exercise objects that getWorkouts() is creating in app.js
 });
 
