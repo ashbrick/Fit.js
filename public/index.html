@@ -14,16 +14,19 @@
 </head>
 <body ng-controller="MyController as ctrl">
 
-  <!-- <div class="video">
-    <video autoplay loop muted height="500" width="500">
-      <source src="/media/fitness-video.mp4" type="video/mp4">
-    </video>
-  </div> -->
   <header>
     <h1>Fit.js</h1>
   </header>
 
   <div class="container-fluid">
+
+    <div class="video">
+      <video autoplay loop muted >
+        <source src="/media/fitness-video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+
 
     <section id="signupPage" ng-if="ctrl.loggedInUser === false">
 
