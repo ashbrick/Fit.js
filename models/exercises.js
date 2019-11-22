@@ -3,7 +3,7 @@ const Workouts = require('./workouts.js'); // requiring the Workouts collection 
 
 //created framework for exercise creation in database
 const exerciseSchema = new mongoose.Schema({
-    exercise: String,
+    exerciseName: String,
     sets: Number,
     reps: Number,
     rest: Number
