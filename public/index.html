@@ -13,15 +13,20 @@
   <link rel="stylesheet" href="/css/app.css">
 </head>
 <body ng-controller="MyController as ctrl">
+
+  <!-- <div class="video">
+    <video autoplay loop muted height="500" width="500">
+      <source src="/media/fitness-video.mp4" type="video/mp4">
+    </video>
+  </div> -->
   <header>
     <h1>Fit.js</h1>
   </header>
+
   <div class="container-fluid">
 
     <section id="signupPage" ng-if="ctrl.loggedInUser === false">
 
-      <!-- iframe -->
-      <!-- <iframe class="iframe" src="http://shutterstock.7eer.net/c/1203981/43977/1305?u=https://www.shutterstock.com/video/clip-1012928603&subId1=search&subId2=workout" width="100px" height="100px"></iframe> -->
 
       <div class="signup">
         <h3> Sign Up </h3>
@@ -93,12 +98,7 @@
           </ul> -->
           <button ng-click="ctrl.logout()">Log Out!</button>
 
-        <!-- Trying out the video...note just drag and dropped file in from desktop and not command line.  Also looks like a .DS_Store file was created? -->
-        <div class="video">
-          <video autoplay controls width="400" height="400">
-            <source src="/media/fitness-video.mp4" type="video/mp4">
-          </video>
-        </div>
+
 
         <!-- Form to create new workout -->
 
