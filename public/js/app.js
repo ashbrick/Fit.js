@@ -91,8 +91,6 @@ app.controller('MyController', ['$http', function($http){
     });
   }
 
-<<<<<<< HEAD
-=======
   //This function will delete a workout
 this.deleteWorkout = function(workout){
     $http({
@@ -132,7 +130,7 @@ this.editWorkout = function(todo){
 
 
 
->>>>>>> 6067357aefa597caa29fd068d603cc2329925f48
+
   this.getWorkouts(); // refreshes page and adds data without taking user away from page
 
 //  keeps the user logged in on page refresh
