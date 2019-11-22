@@ -71,25 +71,42 @@ app.controller('MyController', ['$http', function($http){
       });
   }
 
-// allows user to create a new workout
-  this.createWorkout = function(){
+// stretch goal: relational db notes
+        // right now createWorkout is creating new exercises and adding them to the exercises db (this function SHOULD be creating workout names and adding them to a workouts collection)
+        // we need createWorkout to create a workout name and add it to the workouts db with the info for (duration,date and exercises)
+        // then we need to create a createExercise() function that creates an exercise and adds it to a list that will populate and attach to the workout id of the workout that's created using createdWorkout()
+  this.createWorkout = function(){ //allows user to create a new workout
     $http({
       method:'POST',
       url: '/workouts',
       data: {
-        type: this.type,
+        workoutName: this.workoutName,
         duration: this.duration,
+        date: this.date,
+        exercises: this.exercises,
         sets: this.sets,
         reps: this.reps,
         rest: this.rest
       }
     }).then(function(response){
         controller.getWorkouts();
+        controller.workoutName = null;
+        controller.duration = null;
+        controller.date = null;
+        controller.exercises = null;
+        controller.sets = null;
+        controller.reps = null;
+        controller.rest = null;
       console.log(response);
     }, function(){
       console.log('error');
     });
   }
+
+// this function will create exercises that get pushed into a workout
+    // this.createExercise = function(){
+    //
+    // }
 
   //This function will delete a workout
 this.deleteWorkout = function(workout){
@@ -111,8 +128,9 @@ this.editWorkout = function(todo){
     method: 'PUT',
     url: '/workouts/' + todo._id,
     data: {
-      type: this.updatedType,
+      workoutName: this.updatedWorkoutName,
       duration: this.updatedDuration,
+      exercises: this.updatedExercises,
       sets: this.updatedSets,
       reps: this.updatedReps,
       rest: this.updatedRest
@@ -126,9 +144,6 @@ this.editWorkout = function(todo){
     }
   );
 }
-
-
-
 
 
   this.getWorkouts(); // refreshes page and adds data without taking user away from page
