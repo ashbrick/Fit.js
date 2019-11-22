@@ -7,14 +7,23 @@ body {
 }
 
 header {
-  background-color: lightgrey;
+  background-color: #3F88C5 ;
 }
 
 header h1 {
   text-align: center;
+  color: #FA7403;
   padding: 3%;
   font-family: "Titillium Web", sans-serif;
 }
+
+input[type=submit] {
+  border-radius: 3px;
+  background-color: #FA7403;
+  color: white;
+  font-family: "Roboto";
+}
+
 .container-fluid {
     display: flex;
     justify-content: center;
@@ -27,17 +36,21 @@ header h1 {
     /* z-index: 0; */
 }
 .signup {
-    border: 1px black solid;
+    border: 3px #3F88C5 solid;
     border-radius: 8px;
     padding: 10px 20px;
     z-index: 1;
+    box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.7);
+    color: #FA7403;
 }
 .login {
-    border: 1px black solid;
+    border: 3px #3F88C5 solid;
     border-radius: 8px;
     margin-top: 5%;
     padding: 10px 20px;
     z-index: 1;
+    box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.7);
+    color: #FA7403;
 }
 
 .username {
@@ -71,6 +84,20 @@ input {
   margin-bottom: 5%;
 }
 
+/* STYLING AFTER LOGGING IN */
+.workout-input {
+  border: 3px solid #000;
+}
+
+.logout-button {
+  margin-top: 15px;
+  margin-left: 50%;
+  border-radius: 3px;
+  padding: 10px 20px;
+  background-color:#3F88C5;
+  color: white;
+  font-size: 1em;
+}
 
 /* COMPLETED WORKOUT CARD */
 .completed-workout-card {
