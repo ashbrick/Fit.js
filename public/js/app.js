@@ -1,9 +1,13 @@
 const app = angular.module('WorkoutApp', []);
 
 app.controller('MyController', ['$http', function($http){
-  this.foo ='bar';
   const controller = this;
   this.loggedInUser = false;
+
+  this.indexOfEditFormToShow = null;
+  // ----------------------------
+  // LOGIN FORM FUNCTIONS
+  // ----------------------------
 
 //user can sign up
   this.signup = function(){
@@ -50,6 +54,12 @@ app.controller('MyController', ['$http', function($http){
       })
   }
 
+  // ----------------------------
+  // MAIN INDEX PAGE FUNCTIONS
+  // ----------------------------
+
+
+
 // shows all workouts
   this.getWorkouts = function(){
       $http({
@@ -81,7 +91,46 @@ app.controller('MyController', ['$http', function($http){
     });
   }
 
-  this.getWorkouts(); // refreshes page and adds data without taking user away from page 
+  //This function will delete a workout
+this.deleteWorkout = function(workout){
+    $http({
+      method: 'DELETE',
+      url: '/workouts/' + workout._id
+    }).then(
+      function(response){
+          controller.getWorkouts();
+      },
+      function(error){
+      }
+  );
+}
+
+//This function will edit a workout
+this.editWorkout = function(todo){
+  $http({
+    method: 'PUT',
+    url: '/workouts/' + todo._id,
+    data: {
+      type: this.updatedType,
+      duration: this.updatedDuration,
+      sets: this.updatedSets,
+      reps: this.updatedReps,
+      rest: this.updatedRest
+    }
+  }).then(
+    function(response){
+      controller.getWorkouts();
+      controller.indexOfEditFormToShow = null;
+    },
+    function(error){
+    }
+  );
+}
+
+
+
+
+  this.getWorkouts(); // refreshes page and adds data without taking user away from page
 
 //  keeps the user logged in on page refresh
   $http({

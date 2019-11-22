@@ -61,6 +61,28 @@
         <p>Sets: {{workout.sets}}</p>
         <p>Reps: {{workout.reps}}</p>
         <p>Rest: {{workout.rest}}</p>
+
+        <input ng-click="ctrl.deleteWorkout(workout)" type="submit" value="Delete Workout">
+
+     <a>
+     <button type="button" name="button"
+
+       ng-if="$index !== ctrl.indexOfEditFormToShow"
+       ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedDescription=''">Edit Workout
+     </button>
+     </a>
+
+     <!-- //Button to Edit form -->
+     <form
+       ng-if="$index === ctrl.indexOfEditFormToShow"
+       ng-submit="ctrl.editWorkout(workout);">
+       <input type="text" ng-model="ctrl.updatedType" placeholder="Workout Type">
+       <input type="text" ng-model="ctrl.updatedDuration" placeholder="Duration(Minutes)">
+       <input type="text" ng-model="ctrl.updatedSets" placeholder="Sets">
+       <input type="text" ng-model="ctrl.updatedReps" placeholder="Reps">
+       <input type="text" ng-model="ctrl.updatedRest" placeholder="Rest Time(Seconds) ">
+       <input type="submit" value="Update Workout">
+     </form>
       </div>
 
           <!-- <ul>
