@@ -1,29 +1,125 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="WorkoutApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Workout App</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
-    <script src="/js/app.js" charset="utf-8"></script>
-  </head>
-  <body ng-controller="MyController as ctrl">
-    {{2+2}}
-    {{ctrl.foo}}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+  <title>Workout App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Fonts -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto|Titillium+Web&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body ng-controller="MyController as ctrl">
+
+  <header>
+    <h1>Fit.js</h1>
+  </header>
+
+  <div class="container-fluid">
+
+    <!-- <div class="video">
+      <video autoplay loop muted >
+        <source src="/media/fitness-video.mp4" type="video/mp4">
+      </video>
+    </div> -->
 
 
-    <!-- Form to create new workout -->
-    <form ng-submit="ctrl.createWorkout()">
-      <!-- Test - below should display on screen -->
-      {{ctrl.type}} - {{ctrl.duration}} - {{ctrl.sets}} - {{ctrl.reps}} - {{ctrl.rest}}
 
-      <input type="text" ng-model="ctrl.type" placeholder="Workout Type">
-      <input type="text" ng-model="ctrl.duration" placeholder="Duration(Minutes)">
-      <input type="text" ng-model="ctrl.sets" placeholder="Sets">
-      <input type="text" ng-model="ctrl.reps" placeholder="Reps">
-      <input type="text" ng-model="ctrl.rest" placeholder="Rest Time">
-      <input type="submit" value="Log New Workout">
-    </form>
+    <section id="signupPage" ng-if="ctrl.loggedInUser === false">
+
+      <div class="signup">
+        <h3> Sign Up </h3>
+        <form id="signupform" ng-submit="ctrl.signup()">
+          Username: <input class="username" type="text" ng-model="ctrl.signupUsername"/></br>
+          Password: <input class="password" type="password" ng-model="ctrl.signupPassword"/></br>
+          <input class="inputbtn" type="submit" value="Sign Up!">
+        </form>
+      </div>
+
+      <div class="login">
+        <h3> Log In </h3>
+        <form id="loginform" ng-submit="ctrl.login()">
+          Username: <input class="username" type="text" ng-model="ctrl.loginUsername"/></br>
+          Password: <input class="password" type="password" ng-model="ctrl.loginPassword"/></br>
+          <input class="inputbtn" type="submit" value="Log In!">
+        </form>
+      </div>
+
+    </section>
+    <section class="homepage" ng-if="ctrl.loggedInUser !== false">
 
 
+
+      <div class="workout-input">
+        <form class="new-workout-form"ng-submit="ctrl.createWorkout()">
+          Workout Name: <input type="text" ng-model="ctrl.workoutName" name="type"><br>
+          Exercises: <input type="text" ng-model="ctrl.exercises" name="exercises" ><br>
+          Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="(Minutes)"><br>
+          Sets: <input type="number" ng-model="ctrl.sets" name="sets" ><br>
+          Reps: <input type="number" ng-model="ctrl.reps" name="reps" ><br>
+          Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="(seconds)"><br>
+          <input class="createbtn" type="submit" value="Create Workout">
+        </form>
+      </div>
+
+      <div ng-repeat="workout in ctrl.workouts" class="completed-workout-card">
+        <p>Workout Name: {{workout.workoutName}}</p>
+        <p>Exercises: {{workout.exercises}}</p>
+        <p>Workout Duration: {{workout.duration}}</p>
+        <p>Sets: {{workout.sets}}</p>
+        <p>Reps: {{workout.reps}}</p>
+        <p>Rest: {{workout.rest}}</p>
+
+        <input ng-click="ctrl.deleteWorkout(workout)" type="submit" value="Delete Workout">
+
+     <a>
+     <button type="button" name="button"
+
+       ng-if="$index !== ctrl.indexOfEditFormToShow"
+       ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedDescription=''">Edit Workout
+     </button>
+     </a>
+
+     <!-- //Button to Edit form -->
+     <form
+       ng-if="$index === ctrl.indexOfEditFormToShow"
+       ng-submit="ctrl.editWorkout(workout);">
+       <input type="text" ng-model="ctrl.updatedWorkoutName" placeholder="Workout Name">
+       <input type="text" ng-model="ctrl.updatedDuration" placeholder="Duration(Minutes)">
+       <input type="text" ng-model="ctrl.updatedExercises" placeholder="Exercises">
+       <input type="text" ng-model="ctrl.updatedSets" placeholder="Sets">
+       <input type="text" ng-model="ctrl.updatedReps" placeholder="Reps">
+       <input type="text" ng-model="ctrl.updatedRest" placeholder="Rest Time(Seconds) ">
+       <input type="submit" value="Update Workout">
+     </form>
+      </div>
+
+          <!-- <ul>
+              <li
+              ng-repeat="workout in ctrl.workouts"
+              >{{workout.type}} - {{workout.duration}} - {{workout.sets}} - {{workout.reps}} - {{workout.rest}}
+          </li>
+          </ul> -->
+          <button class="logout-button" ng-click="ctrl.logout()">Log Out!</button>
+
+
+
+        <!-- Form to create new workout -->
+
+        </section>
+
+    </div>
   </body>
 </html>
+
+
+
+<!-- safety orange: #FA7403 -->
+<!-- tufts blue: #3F88C5 -->
+<!-- white: #FFFFFF -->
+<!-- gainsboro: #E0E2DB -->
+<!-- rich black: #01110A -->
