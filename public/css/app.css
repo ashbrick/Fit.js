@@ -14,7 +14,10 @@ header h1 {
   text-align: center;
   color: #FA7403;
   padding: 3%;
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  text-shadow: 2px 2px #fff;
+  font-size: 4em;
 }
 
 input[type=submit] {
@@ -101,12 +104,25 @@ input {
 
 /* COMPLETED WORKOUT CARD */
 .completed-workout-card {
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 8px;
   margin-top: 5%;
   padding: 10px 20px;
   /*source https://www.cssmatic.com/box-shadow */
   box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.7);
+}
+
+/* .homepage {
+  width: 100%;
+  height: auto;
+} */
+
+.background-image{
+  /* background-image: url("public/media/adam-wilson-gNzqerPFtWs-unsplash.jpg"); */
+  /* background-size: cover;
+  background-position: center;
+  height: 500px; */
+  background-color: blue;
 }
 
 /* VIDEO STYLING */
