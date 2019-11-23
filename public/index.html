@@ -107,13 +107,19 @@
           <button class="logout-button" ng-click="ctrl.logout()">Log Out!</button>
 
 <!-- This is a test ng-include.  It adds in the custom html from header.html using header.html as an src -->
-        <ng-include src="'header.html'"></ng-include>
+
 
         <!-- Form to create new workout -->
 
         </section>
 
     </div>
+<!--
+    This is just a test for displaying the header for the user logged in page -->
+    <!-- <ng-include src="'userpage-header.html'"></ng-include> -->
+
+  <ng-include src="'login-header.html'"></ng-include> 
+
   </body>
 </html>
 
