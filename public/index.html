@@ -17,22 +17,22 @@
 </head>
 <body ng-controller="MyController as ctrl">
 
-  <!-- <header>
+  <header>
     <h1>Fit.js</h1>
-  </header> -->
+  </header>
 
   <div class="container-fluid">
 
-    <!-- <div class="video">
-      <video autoplay loop muted >
-        <source src="/media/fitness-video.mp4" type="video/mp4">
-      </video>
-    </div> -->
+      <!-- <div class="video">
+        <video autoplay loop muted >
+          <source src="/media/fitness-video.mp4" type="video/mp4">
+        </video>
+      </div> -->
 
 
 
     <section id="signupPage" ng-if="ctrl.loggedInUser === false">
-        <header ng-include="'login-header.html'"></header>
+        <header ng-include="'public/partials/login-header.html'"></header>
       <div class="signup">
 
         <h3> Sign Up </h3>
@@ -52,42 +52,47 @@
         </form>
       </div>
     </section>
+
+
+<!--  -->
+<!--  -->
+<!-- WHEN USER IS LOGGED IN THEY WLL SEE THIS  -->
     <section class="homepage" ng-if="ctrl.loggedInUser !== false">
-        <header ng-include="'userpage-header.html'" class="navigation"></header>
+        <!-- <header ng-include="'userpage-header.html'" class="navigation"></header> -->
+        <nav
+            ng-include="'partials/userpage-header.html'" class="navigation">
+        </nav>
+         <div ng-include="ctrl.includePath"></div>
 
-
-      <div class="workout-input">
+<!-- CREATE A WORKOUT -->
+      <!-- <div class="workout-input">
         <form class="new-workout-form"ng-submit="ctrl.createWorkout()">
           Workout Name: <input type="text" ng-model="ctrl.workoutName" name="type"><br>
           Exercises: <input type="text" ng-model="ctrl.exercises" name="exercises" ><br>
           Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="(Minutes)"><br>
           Sets: <input type="number" ng-model="ctrl.sets" name="sets" ><br>
-          Reps: <input type="number" ng-model="ctrl.reps" name="reps" ><br>
-          Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="(seconds)"><br>
-          <input class="createbtn" type="submit" value="Create Workout">
         </form>
-      </div>
+      </div> -->
 
-      <div ng-repeat="workout in ctrl.workouts" class="completed-workout-card">
-        <p>Workout Name: {{workout.workoutName}}</p>
-        <p>Exercises: {{workout.exercises}}</p>
-        <p>Workout Duration: {{workout.duration}}</p>
-        <p>Sets: {{workout.sets}}</p>
-        <p>Reps: {{workout.reps}}</p>
-        <p>Rest: {{workout.rest}}</p>
-
-        <input ng-click="ctrl.deleteWorkout(workout)" type="submit" value="Delete Workout">
-
-     <a>
-     <button type="button" name="button"
-
+          <!-- <div ng-repeat="workout in ctrl.workouts" class="completed-workout-card">
+            <p>Workout Name: {{workout.workoutName}}</p>
+            <p>Exercises: {{workout.exercises}}</p>
+            <p>Workout Duration: {{workout.duration}}</p>
+            <p>Sets: {{workout.sets}}</p>
+            <p>Reps: {{workout.reps}}</p>
+            <p>Rest: {{workout.rest}}</p> -->
+<!-- DELETE BUTTON -->
+        <!-- <input ng-click="ctrl.deleteWorkout(workout)" class="delete-button" type="submit" value="Delete Workout"> -->
+<!-- EDIT BUTTON -->
+     <!-- <a>
+     <button class="edit-button" type="button" name="button"
        ng-if="$index !== ctrl.indexOfEditFormToShow"
        ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedDescription=''">Edit Workout
      </button>
-     </a>
+     </a> -->
 
-     <!-- //Button to Edit form -->
-     <form
+<!-- //Button to Edit form -->
+     <!-- <form
        ng-if="$index === ctrl.indexOfEditFormToShow"
        ng-submit="ctrl.editWorkout(workout);">
        <input type="text" ng-model="ctrl.updatedWorkoutName" placeholder="Workout Name">
@@ -97,27 +102,14 @@
        <input type="text" ng-model="ctrl.updatedReps" placeholder="Reps">
        <input type="text" ng-model="ctrl.updatedRest" placeholder="Rest Time(Seconds) ">
        <input type="submit" value="Update Workout">
-     </form>
-      </div>
+     </form>  -->
 
-          <!-- <ul>
-              <li
-              ng-repeat="workout in ctrl.workouts"
-              >{{workout.type}} - {{workout.duration}} - {{workout.sets}} - {{workout.reps}} - {{workout.rest}}
-          </li>
-          </ul> -->
-          <button class="logout-button" ng-click="ctrl.logout()">Log Out!</button>
+
+     </div>
 
 
         </section>
-
-
     </div>
-
-
-
-
-
   </body>
 </html>
 
@@ -128,3 +120,25 @@
 <!-- white: #FFFFFF -->
 <!-- gainsboro: #E0E2DB -->
 <!-- rich black: #01110A -->
+
+
+<!-- CODE GRAVEYARD -->
+
+<!-- commented out becasue we changed our model and how we wanted to display the info
+
+Reps: <input type="number" ng-model="ctrl.reps" name="reps" ><br>
+Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="(seconds)"><br>
+<input class="createbtn" type="submit" value="Create Workout"> -->
+
+
+<!-- <ul>
+    <li
+    ng-repeat="workout in ctrl.workouts"
+    >{{workout.type}} - {{workout.duration}} - {{workout.sets}} - {{workout.reps}} - {{workout.rest}}
+</li>
+</ul> -->
+
+
+<!-- <button class="menu-buttons" type="submit" name="videospage">
+<h5 ng-click="ctrl.changeInclude('videospage')">Videos</h5>
+</button> -->

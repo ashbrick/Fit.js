@@ -1,0 +1,46 @@
+<nav
+    ng-include="'partials/navigation.html'" class="navigation">
+</nav>
+
+<div class="workout-input">
+  <form class="new-workout-form"ng-submit="ctrl.createWorkout()">
+    Workout Name: <input type="text" ng-model="ctrl.workoutName" name="type"><br>
+    Exercises: <input type="text" ng-model="ctrl.exercises" name="exercises" ><br>
+    Duration: <input type="text" ng-model="ctrl.duration" name="duration" placeholder="(Minutes)"><br>
+    Sets: <input type="number" ng-model="ctrl.sets" name="sets" ><br>
+    Reps: <input type="number" ng-model="ctrl.reps" name="reps" ><br>
+    Rest time: <input type="number" ng-model="ctrl.rest" name="rest" placeholder="(seconds)"><br>
+    <input class="createbtn" type="submit" value="Create Workout">
+  </form>
+</div>
+
+<div ng-repeat="workout in ctrl.workouts" class="completed-workout-card">
+  <p>Workout Name: {{workout.workoutName}}</p>
+  <p>Exercises: {{workout.exercises}}</p>
+  <p>Workout Duration: {{workout.duration}}</p>
+  <p>Sets: {{workout.sets}}</p>
+  <p>Reps: {{workout.reps}}</p>
+  <p>Rest: {{workout.rest}}</p>
+<!-- DELETE A WORKOUT -->
+  <input ng-click="ctrl.deleteWorkout(workout)" class="delete-button" type="submit" value="Delete Workout">
+<!-- EDIT BUTTON -->
+<a>
+<button class="edit-button" type="button" name="button"
+ ng-if="$index !== ctrl.indexOfEditFormToShow"
+ ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedDescription=''">Edit Workout
+</button>
+</a>
+
+<!-- //Button to Edit form -->
+<form
+ ng-if="$index === ctrl.indexOfEditFormToShow"
+ ng-submit="ctrl.editWorkout(workout);">
+ <input type="text" ng-model="ctrl.updatedWorkoutName" placeholder="Workout Name">
+ <input type="text" ng-model="ctrl.updatedDuration" placeholder="Duration(Minutes)">
+ <input type="text" ng-model="ctrl.updatedExercises" placeholder="Exercises">
+ <input type="text" ng-model="ctrl.updatedSets" placeholder="Sets">
+ <input type="text" ng-model="ctrl.updatedReps" placeholder="Reps">
+ <input type="text" ng-model="ctrl.updatedRest" placeholder="Rest Time(Seconds) ">
+ <input type="submit" value="Update Workout">
+</form>
+</div>

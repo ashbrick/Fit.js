@@ -32,7 +32,7 @@ input[type=submit] {
     justify-content: center;
     width: 100%;
     height: 100%;
-    margin: 50px 0;
+    /* margin: 50px 0; */
     /* background-color: lightblue; */
 }
 .iframe {
@@ -90,14 +90,16 @@ input {
 /* STYLING AFTER LOGGING IN */
 
 .navigation {
-    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .workout-input {
   border: 3px solid #000;
 }
 
-.logout-button {
+/* commmented this out because we moved the logout btn to the nav bar header */
+/* .logout-button {
   margin-top: 15px;
   margin-left: 50%;
   border-radius: 3px;
@@ -105,7 +107,7 @@ input {
   background-color:#3F88C5;
   color: white;
   font-size: 1em;
-}
+} */
 
 /* COMPLETED WORKOUT CARD */
 .completed-workout-card {
@@ -179,15 +181,34 @@ https://www.youtube.com/watch?v=05ZHUuQVvJM */
   color: #FA7403;
 }
 
-.user-page-buttons {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+/* .user-page-buttons  */
+/* display: flex; */
+/* align-items: center; */
+/* flex-direction: row; */
+.menu-buttons {
+    text-align: center;
+    background: #FA7403;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 4px;
 }
 
-.user-page-buttons input{
-  margin: 5px;
-  padding: 10px;
+/* .user-page-buttons */
+.menu-buttons {
+  margin: 10px;
+  padding: 10px 20px;
+  padding-bottom: 5px;
+}
+
+.edit-button {
+    background: #3F88C5;
+    color: white;
+    border-radius: 4px;
+    font-family: "Open Sans", sans-serif;
+    margin-left: 5%;
+}
+.delete-button {
+    margin-left: 10%;
 }
 
 /* ABOUT PAGE STYLING */
@@ -240,11 +261,22 @@ i {
   font-family: "Open Sans", sans-serif;
   font-weight: 800;
   text-shadow: 2px 2px #fff;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
-  color: #FA7403;
+  color: #3F88C5;
 }
 
+/* ABOUT PAGE */
+.wrapper {
+    text-align: center;
+}
+.wrapper h1 {
+    font-size: 2.5em;
+    color: #3F88C5;
+    margin-top: 30px;
+}
+
+/* VIDEO PAGE STYLING */
 .video-container {
   display: flex;
   flex-direction:column;
