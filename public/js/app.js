@@ -147,6 +147,16 @@ this.editWorkout = function(todo){
   );
 }
 
+// NAVIGATION
+this.includePath = 'partials/navigation.html';
+
+//write a function that will allow us to change what we see based on the path so wecan see different partials (also go back to nav menu in partials and add an ngclick )
+this.changeInclude = (path) => {
+    this.includePath = 'partials/' + path + '.html';
+}
+
+//create a function that hides the partial that you're not actually trying to view
+
 
   this.getWorkouts(); // refreshes page and adds data without taking user away from page
 
