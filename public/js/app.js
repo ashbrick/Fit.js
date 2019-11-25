@@ -51,6 +51,8 @@ app.controller('MyController', ['$http', function($http){
           method:'DELETE'
       }).then(function(){
           controller.loggedInUser = false;
+          controller.loginUsername = null;
+          controller.loginPassword = null;
       })
   }
 

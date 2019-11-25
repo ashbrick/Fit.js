@@ -17,9 +17,9 @@
 </head>
 <body ng-controller="MyController as ctrl">
 
-  <header>
+  <!-- <header>
     <h1>Fit.js</h1>
-  </header>
+  </header> -->
 
   <div class="container-fluid">
 
@@ -32,8 +32,9 @@
 
 
     <section id="signupPage" ng-if="ctrl.loggedInUser === false">
-
+        <header ng-include="'login-header.html'"></header>
       <div class="signup">
+
         <h3> Sign Up </h3>
         <form id="signupform" ng-submit="ctrl.signup()">
           Username: <input class="username" type="text" ng-model="ctrl.signupUsername"/></br>
@@ -50,10 +51,9 @@
           <input class="inputbtn" type="submit" value="Log In!">
         </form>
       </div>
-
     </section>
     <section class="homepage" ng-if="ctrl.loggedInUser !== false">
-
+        <header ng-include="'userpage-header.html'" class="navigation"></header>
 
 
       <div class="workout-input">
