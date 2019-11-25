@@ -184,3 +184,72 @@ https://www.youtube.com/watch?v=05ZHUuQVvJM */
   margin: 5px;
   padding: 10px;
 }
+
+/* ABOUT PAGE STYLING */
+.about-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  text-shadow: 2px 2px #fff;
+  font-size: 4em;
+  text-align: center;
+  color: #FA7403;
+}
+
+.container {
+  /* border: solid 2px blue; */
+  padding: 3%;
+  margin: 5% 10%;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.about-name, .about-blurb {
+  font-size: 1.25em;
+  color: text-align: center;
+  color: #FA7403;
+  font-family: "Roboto";
+}
+
+.person {
+  font-weight: 600;
+}
+
+i {
+  margin: 5px;
+  font-size: 2em;
+  color: #FA7403;
+  text-align: center;
+}
+
+.social {
+  text-align: center;
+}
+
+/* STYLE FOR VIDEOS PAGE */
+.videos-header {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  text-shadow: 2px 2px #fff;
+  font-size: 4em;
+  text-align: center;
+  color: #FA7403;
+}
+
+.video-container {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  margin: 5% 10%
+}
+
+.video-sub-header {
+  font-size: 1.35em;
+  text-align: center;
+  color: #FA7403;
+  font-family: "Roboto";
+}
