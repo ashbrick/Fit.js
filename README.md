@@ -19,12 +19,12 @@ MEAN stack:
 Javascript, HTML5, CSS3, Bootstrap, CRUD, REST
 
 ## User Stories
-*User can sign-up and login with a unique username and password (encrypted)
-*User can create a new workout with a title, duration, list of exercises, total sets/reps and rest time
-*User can see previous workouts after logging in
-*User can view workout videos from YouTube if they navigate to the Videos page
-*User can refresh homepage without getting logged out
-*User can logout
+1. User can sign-up and login with a unique username and password (encrypted)
+2. User can create a new workout with a title, duration, list of exercises, total sets/reps and rest time
+3. User can see previous workouts after logging in
+4. User can view workout videos from YouTube if they navigate to the Videos page
+5. User can refresh homepage without getting logged out
+6. User can logout
 
 
 ## Wireframe
