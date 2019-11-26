@@ -5,9 +5,7 @@
 Fit.js is a fitness app that you can use to record and plan your workouts. 
 
 **Created by:**  
-Justin Warren
-James Bennett
-Ashley Brickhouse
+Justin Warren, James Bennett, Ashley Brickhouse
 
 Check out the live app here: [Fit.js](https://fierce-forest-65008.herokuapp.com/)
 
