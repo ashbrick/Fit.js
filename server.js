@@ -53,7 +53,11 @@ app.use('/session', sessionController);
 const PROJECT3_DB = process.env.PROJECT3_DB
 console.log(PROJECT3_DB);
 
-mongoose.connect(PROJECT3_DB, { useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false, useCreateIndex: true })
+mongoose.connect(PROJECT3_DB, {
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+    useFindAndModify:false,
+    useCreateIndex: true })
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
