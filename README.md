@@ -16,12 +16,7 @@ MEAN stack:
 3. Angular 1.7
 4. Node.js
 
-Javascript
-HTML5
-CSS3
-Bootstrap
-CRUD
-REST
+Javascript, HTML5, CSS3, Bootstrap, CRUD, REST
 
 ## User Stories
 *User can sign-up and login with a unique username and password (encrypted)
