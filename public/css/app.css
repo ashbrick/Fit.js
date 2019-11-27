@@ -219,6 +219,7 @@ https://www.youtube.com/watch?v=05ZHUuQVvJM */
   font-size: 4em;
   text-align: center;
   color: #FA7403;
+  margin-right: 10px;
 }
 
 .container {
@@ -273,7 +274,12 @@ i {
 
 /* ABOUT PAGE */
 .wrapper {
-    text-align: center;
+    text-align: left;
+    width: 100%;
+    margin-left: 40px;
+    margin-right: 50px;
+    padding: 10px;
+    padding-right: 20px;
 }
 .wrapper h1 {
     font-size: 2.5em;
