@@ -290,3 +290,22 @@ i {
   color: #FA7403;
   font-family: "Roboto";
 }
+
+/*USER LOGGED IN PAGE*/
+/* .quote-container {
+  margin: 6%;
+} */
+
+.quote {
+  font-size: 2em;
+  color: #3F88C5;
+}
+
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.img-quote {
+  margin-top: 10%;
+}

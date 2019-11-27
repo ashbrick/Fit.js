@@ -2,7 +2,7 @@
 
 # Fit.js
 
-Fit.js is a fitness app that you can use to record and plan your workouts. 
+Fit.js is a fitness app that you can use to record and plan your workouts.
 
 **Created by:**  
 Justin Warren, James Bennett, Ashley Brickhouse
@@ -28,7 +28,7 @@ Javascript, HTML5, CSS3, Bootstrap, CRUD, REST
 
 
 ## Wireframe
-Our original user experience brainstorming was done while we were all in a Zoom meeting, using Canva.com. These images were what we used to create the final product. 
+Our original user experience brainstorming was done while we were all in a Zoom meeting, using Canva.com. These images were what we used to create the final product.
 
 #### When the user first logs in
 ![welcome page](https://imgur.com/uy8DZo1.png "welcome page")
@@ -41,12 +41,13 @@ Our original user experience brainstorming was done while we were all in a Zoom 
 
 
 ## Approach Taken
-
+Our team worked hard to collaborate effectively throughout every step of our process.  Initially, Ashley set up a Trello board in order
+to delegate tasks.  We were able to first start by segmenting our project into three key areas: Login/Signup Page, Angularjs Front-end setup, and Back-end setup.  After these initial tasks were completed by all team members we were able to reconvene and further iterate on our project
+in order to move beyond a Minimum Viable Product (MVP) and add additional styling and features.  Overall, it was a great experience as we were able to not only finish our project on time, but also grow as developers by working collaboratively in a team setting.
 
 ## Unsolved Problems
--relational databases
+-Relational databases
+-Video Background for login/signup page
 
-## Notes 
+## Notes
 These are notes to ourselves so that we can come back and pick up where we left off in order to keep working on the app and develop it further.
-
-
