@@ -57,9 +57,7 @@ app.controller('MyController', ['$http', function($http){
             controller.loggedInUser = false;
             controller.loginUsername = null;
             controller.loginPassword = null;
-        }).catch(function(err) {
-            console.log('error: ', err);
-        });
+        })
     }
 
     // ----------------------------
