@@ -233,10 +233,15 @@ https://www.youtube.com/watch?v=05ZHUuQVvJM */
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.about-text {
+    margin: 40px 20px;
+    padding: 10px 20px;
+    text-align: left;
+}
 
 .about-name, .about-blurb {
   font-size: 1.25em;
-  color: text-align: center;
+  text-align: center;
   color: #FA7403;
   font-family: "Roboto";
 }
